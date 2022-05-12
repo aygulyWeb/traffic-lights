@@ -13,84 +13,114 @@ const lights__stop = document.querySelector('.lights__stop');
 
 
 lights__start.addEventListener('click', () => {
+
 	let delayRed = red__num.value;
 	let delayYellow = yellow__num.value;
 	let delayGreen = yellow__num.value;
-	setTimeout(() => {
-		// let delayRed = red__num.value;
-		lights__right.style.background = 'red';
-		function getTimerRed() {
 
-			lights__right.innerHTML = delayRed;
-			if (delayRed == 0) {
-				lights__right.innerHTML = ' ';
-				clearInterval(countTimerRed);
-			} else {
-				delayRed--;
-			}
-		}
-		let countTimerRed = setInterval(getTimerRed, 1000)
+	// setTimeout(() => {
+	// 	// let delayRed = red__num.value;
+	// 	lights__right.style.background = 'red';
+	// 	function getTimerRed() {
+
+	// 		lights__right.innerHTML = delayRed;
+	// 		if (delayRed == 0) {
+	// 			lights__right.innerHTML = ' ';
+	// 			clearInterval(countTimerRed);
+	// 		} else {
+	// 			delayRed--;
+	// 		}
+	// 	}
+	// 	let countTimerRed = setInterval(getTimerRed, 1000)
+
+	// 	setTimeout(() => {
+	// 		// let delayYellow = yellow__num.value;
+	// 		lights__yellow.style.background = 'yellow';
+	// 		function getTimerYellow() {
+	// 			lights__yellow.innerHTML = delayYellow;
+	// 			if (delayYellow == 0) {
+	// 				lights__yellow.innerHTML = ' ';
+	// 				clearInterval(countTimerYellow);
+	// 			} else {
+	// 				delayYellow--;
+	// 			}
+	// 		}
+	// 		let countTimerYellow = setInterval(getTimerYellow, 1000)
+	// 		setTimeout(() => {
+	// 			// let delayGreen = yellow__num.value;
+	// 			lights__green.style.background = 'green';
+
+	// 			function getTimerGreen() {
+	// 				lights__green.innerHTML = delayGreen;
+	// 				if (delayGreen == 0) {
+	// 					lights__green.innerHTML = ' ';
+	// 					clearInterval(countTimerGreen);
+	// 				} else {
+	// 					delayGreen--;
+	// 				}
+	// 			}
+	// 			let countTimerGreen = setInterval(getTimerGreen, 1000)
+	// 		}, delayGreen * 1000)
+
+	// 	}, delayYellow * 1000)
+
+	// }, delayRed * 1000)
+
+	const p = new Promise((resolve, reject) => {
 		setTimeout(() => {
-			// let delayYellow = yellow__num.value;
-			lights__yellow.style.background = 'yellow';
-			function getTimerYellow() {
-				lights__yellow.innerHTML = delayYellow;
-				if (delayYellow == 0) {
-					lights__yellow.innerHTML = ' ';
-					clearInterval(countTimerYellow);
+			// let delayRed = red__num.value;
+			lights__right.style.background = 'red';
+			function getTimerRed() {
+
+				lights__right.innerHTML = delayRed;
+				if (delayRed == 0) {
+					lights__right.innerHTML = ' ';
+					clearInterval(countTimerRed);
 				} else {
-					delayYellow--;
+					delayRed--;
 				}
 			}
-			let countTimerYellow = setInterval(getTimerYellow, 1000)
+			let countTimerRed = setInterval(getTimerRed, 1000)
+		}, delayRed * 1000);
+		resolve();
+	})
+	p.then(() => {
+		return new Promise((resolve, reject) => {
 			setTimeout(() => {
-				// let delayGreen = yellow__num.value;
-				lights__green.style.background = 'green';
-
-				function getTimerGreen() {
-					lights__green.innerHTML = delayGreen;
-					if (delayGreen == 0) {
-						lights__green.innerHTML = ' ';
-						clearInterval(countTimerGreen);
+				let delayYellow = yellow__num.value;
+				lights__yellow.style.background = 'yellow';
+				function getTimerYellow() {
+					lights__yellow.innerHTML = delayYellow;
+					if (delayYellow == 0) {
+						lights__yellow.innerHTML = ' ';
+						clearInterval(countTimerYellow);
 					} else {
-						delayGreen--;
+						delayYellow--;
 					}
 				}
-				let countTimerGreen = setInterval(getTimerGreen, 1000)
-			}, delayGreen * 1000)
+				let countTimerYellow = setInterval(getTimerYellow, 1000)
 
-		}, delayYellow * 1000)
+			}, delayYellow * 1000);
+			resolve();
+		})
+	}).then(() => {
+		setTimeout(() => {
+			let delayGreen = yellow__num.value;
+			lights__green.style.background = 'green';
 
-	}, delayRed * 1000)
+			function getTimerGreen() {
+				lights__green.innerHTML = delayGreen;
+				if (delayGreen == 0) {
+					lights__green.innerHTML = ' ';
+					clearInterval(countTimerGreen);
+				} else {
+					delayGreen--;
+				}
+			}
+			let countTimerGreen = setInterval(getTimerGreen, 1000)
+		}, delayGreen * 1000);
 
-	// let delayRed = red__num.value;
-	// lights__right.style.background = 'red';
-
-	// function getTimerRed() {
-
-	// 	lights__right.innerHTML = delayRed;
-	// 	if (delayRed == 0) {
-	// 		lights__right.innerHTML = ' ';
-	// 		clearInterval(countTimerRed);
-	// 	} else {
-	// 		delayRed--;
-	// 	}
-	// }
-	// let countTimerRed = setInterval(getTimerRed, 1000)
-
-
-	// let delayYellow = yellow__num.value;
-	// lights__yellow.style.background = 'yellow';
-	// function getTimerYellow() {
-	// 	lights__yellow.innerHTML = delayYellow;
-	// 	if (delayYellow == 0) {
-	// 		lights__yellow.innerHTML = ' ';
-	// 		clearInterval(countTimerYellow);
-	// 	} else {
-	// 		delayYellow--;
-	// 	}
-	// }
-	// let countTimerYellow = setInterval(getTimerYellow, 1000)
+	})
 
 });
 
